@@ -195,6 +195,7 @@ exclude:
   - _pages/blog.md
   - _pages/repositores.md
   - _pages/projects.md
+  - _pages/profiles.md
   
 keep_files:
   - CNAME
