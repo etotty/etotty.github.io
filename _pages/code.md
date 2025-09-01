@@ -2,7 +2,7 @@
 layout: page
 permalink: /code/
 title: code
-description: Replicate code for research papers
+description: Replication code for research papers
 nav: true
 nav_order: 6
 ---
