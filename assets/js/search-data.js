@@ -25,7 +25,7 @@ ninja.data = [{
           },
         },{id: "nav-code",
           title: "code",
-          description: "Replicate code for research papers",
+          description: "Replication code for research papers",
           section: "Navigation",
           handler: () => {
             window.location.href = "/code/";
@@ -37,21 +37,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/teaching/";
           },
-        },{id: "dropdown-bookshelf",
-              title: "bookshelf",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "/books/";
-              },
-            },{id: "dropdown-blog",
-              title: "blog",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "/blog/";
-              },
-            },{id: "post-a-post-with-plotly-js",
+        },{id: "post-a-post-with-plotly-js",
         
           title: "a post with plotly.js",
         
