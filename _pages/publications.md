@@ -1,34 +1,26 @@
 ---
 layout: page
 permalink: /publications/
-title: Publications
-description: Publications grouped by type or topic
+title: publications
+description: publications by type (default) or by topic
 nav: true
 nav_order: 2
 ---
 
-<!-- Bibsearch Feature -->
 {% include bib_search.liquid %}
 
-<!-- Toolbar for grouping options -->
+<!-- Toolbar for grouping -->
 <div id="pub-toolbar" style="margin-bottom: 1em;">
-  <button>Group by Type</button>
-  <button>Group by Topic</button>
+  <button onclick="groupPubs('type')">Group by Type</button>
+  <button onclick="groupPubs('topic')">Group by Topic</button>
 </div>
 
-<!-- Publications list -->
+<!-- Container for publications -->
 <div class="publications" id="pub-list">
   {% bibliography %}
 </div>
 
 <style>
-/* Ensure .pub divs behave like flex containers for Bootstrap */
-.pub {
-  display: flex !important;
-  flex-wrap: wrap;
-}
-
-/* Header style for each group */
 .pub-group-header {
   width: 100%;
   margin-top: 2em;
@@ -36,62 +28,64 @@ nav_order: 2
   font-size: 1.5em;
   font-weight: bold;
 }
+.pub {
+  display: flex !important;
+  flex-wrap: wrap;
+}
 </style>
 
 <script>
 function groupPubs(mode) {
   const container = document.getElementById("pub-list");
-  const items = Array.from(container.querySelectorAll(".pub"));
+  const pubs = Array.from(container.querySelectorAll(".pub"));
 
-  if (!items.length) return;
+  if (pubs.length === 0) return;
 
   // Remove existing headers
   Array.from(container.querySelectorAll(".pub-group-header")).forEach(h => h.remove());
 
-  // Build groups
+  // Group pubs by type or topic
   const groups = {};
-  items.forEach(item => {
-    const key = mode === "type" ? (item.dataset.type || "Unspecified") : (item.dataset.topic || "Unspecified");
+  pubs.forEach(pub => {
+    const key = mode === 'type' ? (pub.dataset.type || 'Unspecified') : (pub.dataset.topic || 'Unspecified');
+    const year = parseInt(pub.dataset.year) || 0;
     if (!groups[key]) groups[key] = [];
-    groups[key].push(item);
+    groups[key].push({ element: pub, year });
   });
+
+  // Clear container
+  container.innerHTML = '';
 
   // Sort groups alphabetically
   Object.keys(groups).sort().forEach(key => {
-    const group = groups[key];
+    const header = document.createElement("div");
+    header.textContent = key;
+    header.className = "pub-group-header";
+    container.appendChild(header);
 
-    // Sort by year descending
-    group.sort((a, b) => (parseInt(b.dataset.year) || 0) - (parseInt(a.dataset.year) || 0));
-
-    // Insert group header above first item
-    group.forEach((pub, i) => {
-      pub.style.display = "flex";
-      if (i === 0) {
-        const header = document.createElement("div");
-        header.className = "pub-group-header";
-        header.textContent = key;
-        container.insertBefore(header, pub);
-      }
+    // Sort publications in each group by year descending
+    groups[key].sort((a, b) => b.year - a.year).forEach(pub => {
+      container.appendChild(pub.element);
+      pub.element.style.display = "flex";
     });
   });
 
-  // Re-initialize popovers (Bootstrap)
+  // Re-initialize popovers or other JS features if needed
   if (typeof $ !== "undefined" && $.fn.popover) {
     $('[data-toggle="popover"]').popover();
   }
 }
 
-// Wait for DOM + Scholar entries
-document.addEventListener("DOMContentLoaded", () => {
-  // Delay to ensure Jekyll Scholar rendered all .pub entries
-  setTimeout(() => groupPubs('type'), 100);
-
-  // Add click handlers
-  const buttons = document.querySelectorAll("#pub-toolbar button");
-  if (buttons.length >= 2) {
-    buttons[0].addEventListener("click", () => groupPubs('type'));
-    buttons[1].addEventListener("click", () => groupPubs('topic'));
+// Wait until the bibliography is rendered before grouping
+function initGrouping() {
+  const container = document.getElementById("pub-list");
+  if (container.querySelectorAll(".pub").length === 0) {
+    setTimeout(initGrouping, 100); // check again
+  } else {
+    groupPubs('type'); // default
   }
-});
+}
+document.addEventListener("DOMContentLoaded", initGrouping);
 </script>
+
 
