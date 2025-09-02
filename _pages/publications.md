@@ -2,7 +2,7 @@
 layout: page
 permalink: /publications/
 title: publications
-description: by type or by topic
+description: publications by type or by topic
 nav: true
 nav_order: 2
 ---
@@ -26,7 +26,7 @@ function groupPubs(mode) {
   const list = document.getElementById("pub-list");
   const items = Array.from(list.querySelectorAll(".pub"));
 
-  // clear the container
+  // Clear the container
   list.innerHTML = "";
 
   // Group publications
@@ -36,31 +36,44 @@ function groupPubs(mode) {
     const type = item.dataset.type || "Unspecified";
     const topic = item.dataset.topic || "Unspecified";
 
-    let key;
-    if (mode === "type") {
-      key = type;
-    } else if (mode === "topic") {
-      key = topic;
-    }
+    let key = (mode === "type") ? type : topic;
 
     if (!groups[key]) groups[key] = [];
     groups[key].push({ element: item, year: year });
   });
 
-  // Render groups sorted by year descending
+  // Sort group keys alphabetically
   const sortedKeys = Object.keys(groups).sort();
 
   sortedKeys.forEach(key => {
+    // Create a container for this group
+    const groupWrapper = document.createElement("div");
+    groupWrapper.className = "pub-group";
+
+    // Add a header
     const header = document.createElement("h3");
     header.textContent = key;
-    list.appendChild(header);
+    groupWrapper.appendChild(header);
 
-    // Sort publications by year descending within the group
+    // Sort publications in this group by year descending
     groups[key].sort((a, b) => b.year - a.year).forEach(pub => {
-      list.appendChild(pub.element);
+      groupWrapper.appendChild(pub.element);
     });
+
+    list.appendChild(groupWrapper);
   });
+
+  // Re-initialize Bootstrap popovers (if used)
+  if (typeof $ !== "undefined" && $.fn.popover) {
+    $('[data-toggle="popover"]').popover();
+  }
 }
+
+// Default grouping on page load
+document.addEventListener("DOMContentLoaded", () => {
+  groupPubs("type");
+});
+</script>
 
 // Default grouping on page load
 document.addEventListener("DOMContentLoaded", () => {
