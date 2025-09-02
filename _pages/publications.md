@@ -12,8 +12,8 @@ nav_order: 2
 
 <!-- Toolbar for grouping options -->
 <div id="pub-toolbar" style="margin-bottom: 1em;">
-  <button onclick="filterPubs('type')">Group by Type</button>
-  <button onclick="filterPubs('topic')">Group by Topic</button>
+  <button>Group by Type</button>
+  <button>Group by Topic</button>
 </div>
 
 <!-- Publications list -->
@@ -22,11 +22,10 @@ nav_order: 2
 </div>
 
 <style>
-/* Ensure each publication row displays correctly */
+/* Ensure .pub divs behave like flex containers for Bootstrap */
 .pub {
   display: flex !important;
   flex-wrap: wrap;
-  margin-bottom: 1rem;
 }
 
 /* Header style for each group */
@@ -40,29 +39,31 @@ nav_order: 2
 </style>
 
 <script>
-function filterPubs(mode) {
+function groupPubs(mode) {
   const container = document.getElementById("pub-list");
   const items = Array.from(container.querySelectorAll(".pub"));
 
-  // Remove old headers
+  if (!items.length) return;
+
+  // Remove existing headers
   Array.from(container.querySelectorAll(".pub-group-header")).forEach(h => h.remove());
 
   // Build groups
   const groups = {};
   items.forEach(item => {
-    const key = (mode === "type") ? (item.dataset.type || "Unspecified") : (item.dataset.topic || "Unspecified");
+    const key = mode === "type" ? (item.dataset.type || "Unspecified") : (item.dataset.topic || "Unspecified");
     if (!groups[key]) groups[key] = [];
     groups[key].push(item);
   });
 
-  // Sort keys alphabetically
+  // Sort groups alphabetically
   Object.keys(groups).sort().forEach(key => {
     const group = groups[key];
 
-    // Sort publications by year descending
+    // Sort by year descending
     group.sort((a, b) => (parseInt(b.dataset.year) || 0) - (parseInt(a.dataset.year) || 0));
 
-    // Show items in order and insert group header
+    // Insert group header above first item
     group.forEach((pub, i) => {
       pub.style.display = "flex";
       if (i === 0) {
@@ -74,13 +75,23 @@ function filterPubs(mode) {
     });
   });
 
-  // Re-initialize popovers
+  // Re-initialize popovers (Bootstrap)
   if (typeof $ !== "undefined" && $.fn.popover) {
     $('[data-toggle="popover"]').popover();
   }
 }
 
-// Default grouping on page load
-document.addEventListener("DOMContentLoaded", () => filterPubs('type'));
+// Wait for DOM + Scholar entries
+document.addEventListener("DOMContentLoaded", () => {
+  // Delay to ensure Jekyll Scholar rendered all .pub entries
+  setTimeout(() => groupPubs('type'), 100);
+
+  // Add click handlers
+  const buttons = document.querySelectorAll("#pub-toolbar button");
+  if (buttons.length >= 2) {
+    buttons[0].addEventListener("click", () => groupPubs('type'));
+    buttons[1].addEventListener("click", () => groupPubs('topic'));
+  }
+});
 </script>
 
