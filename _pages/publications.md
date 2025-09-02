@@ -2,11 +2,12 @@
 layout: page
 permalink: /publications/
 title: Publications
-description: Publications by type or by topic, sorted by year
+description: Publications grouped by type or topic
 nav: true
 nav_order: 2
 ---
 
+<!-- Bibsearch Feature -->
 {% include bib_search.liquid %}
 
 <!-- Toolbar for grouping options -->
@@ -21,6 +22,14 @@ nav_order: 2
 </div>
 
 <style>
+/* Ensure each publication row displays correctly */
+.pub {
+  display: flex !important;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+/* Header style for each group */
 .pub-group-header {
   width: 100%;
   margin-top: 2em;
@@ -32,11 +41,11 @@ nav_order: 2
 
 <script>
 function filterPubs(mode) {
-  const list = document.getElementById("pub-list");
-  const items = Array.from(list.querySelectorAll(".pub"));
+  const container = document.getElementById("pub-list");
+  const items = Array.from(container.querySelectorAll(".pub"));
 
   // Remove old headers
-  Array.from(list.querySelectorAll(".pub-group-header")).forEach(h => h.remove());
+  Array.from(container.querySelectorAll(".pub-group-header")).forEach(h => h.remove());
 
   // Build groups
   const groups = {};
@@ -50,25 +59,28 @@ function filterPubs(mode) {
   Object.keys(groups).sort().forEach(key => {
     const group = groups[key];
 
-    // Insert header before the first item of the group
-    const header = document.createElement("div");
-    header.className = "pub-group-header";
-    header.textContent = key;
-    list.insertBefore(header, group[0]);
+    // Sort publications by year descending
+    group.sort((a, b) => (parseInt(b.dataset.year) || 0) - (parseInt(a.dataset.year) || 0));
 
-    // Show all items, sorted by year descending
-    group.sort((a, b) => (parseInt(b.dataset.year) || 0) - (parseInt(a.dataset.year) || 0)).forEach(pub => {
-      pub.style.display = "flex";  // Ensure visible
+    // Show items in order and insert group header
+    group.forEach((pub, i) => {
+      pub.style.display = "flex";
+      if (i === 0) {
+        const header = document.createElement("div");
+        header.className = "pub-group-header";
+        header.textContent = key;
+        container.insertBefore(header, pub);
+      }
     });
   });
 
-  // Re-initialize Bootstrap popovers
+  // Re-initialize popovers
   if (typeof $ !== "undefined" && $.fn.popover) {
     $('[data-toggle="popover"]').popover();
   }
 }
 
-// Default view on page load
+// Default grouping on page load
 document.addEventListener("DOMContentLoaded", () => filterPubs('type'));
 </script>
 
