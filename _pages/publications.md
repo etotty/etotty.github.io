@@ -2,7 +2,7 @@
 layout: page
 permalink: /publications/
 title: publications
-description: publications by type or by topic
+description: by type or by topic
 nav: true
 nav_order: 2
 ---
