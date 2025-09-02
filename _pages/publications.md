@@ -21,13 +21,30 @@ nav_order: 2
   {% bibliography %}
 </div>
 
+<style>
+/* Optional: ensure pub divs are flex containers for proper Bootstrap layout */
+.pub {
+  display: flex !important;
+  flex-wrap: wrap;
+}
+
+/* Header style for each group */
+.pub-group-header {
+  width: 100%;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+</style>
+
 <script>
 function groupPubs(mode) {
   const list = document.getElementById("pub-list");
   const items = Array.from(list.querySelectorAll(".pub"));
 
-  // Clear the container
-  list.innerHTML = "";
+  // Clear previous headers
+  Array.from(list.querySelectorAll(".pub-group-header")).forEach(h => h.remove());
 
   // Group publications
   const groups = {};
@@ -36,7 +53,7 @@ function groupPubs(mode) {
     const type = item.dataset.type || "Unspecified";
     const topic = item.dataset.topic || "Unspecified";
 
-    let key = (mode === "type") ? type : topic;
+    const key = (mode === "type") ? type : topic;
 
     if (!groups[key]) groups[key] = [];
     groups[key].push({ element: item, year: year });
@@ -46,21 +63,20 @@ function groupPubs(mode) {
   const sortedKeys = Object.keys(groups).sort();
 
   sortedKeys.forEach(key => {
-    // Create a container for this group
-    const groupWrapper = document.createElement("div");
-    groupWrapper.className = "pub-group";
+    const group = groups[key];
 
-    // Add a header
-    const header = document.createElement("h3");
+    // Insert group header
+    const header = document.createElement("div");
     header.textContent = key;
-    groupWrapper.appendChild(header);
+    header.className = "pub-group-header";
+    list.appendChild(header);
 
-    // Sort publications in this group by year descending
-    groups[key].sort((a, b) => b.year - a.year).forEach(pub => {
-      groupWrapper.appendChild(pub.element);
+    // Sort publications by year descending and set CSS order
+    group.sort((a, b) => b.year - a.year).forEach((pub, index) => {
+      pub.element.style.order = index;
+      list.appendChild(pub.element);
+      pub.element.style.display = "flex"; // ensure visible
     });
-
-    list.appendChild(groupWrapper);
   });
 
   // Re-initialize Bootstrap popovers (if used)
@@ -68,12 +84,6 @@ function groupPubs(mode) {
     $('[data-toggle="popover"]').popover();
   }
 }
-
-// Default grouping on page load
-document.addEventListener("DOMContentLoaded", () => {
-  groupPubs("type");
-});
-</script>
 
 // Default grouping on page load
 document.addEventListener("DOMContentLoaded", () => {
