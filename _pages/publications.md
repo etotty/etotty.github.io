@@ -1,19 +1,18 @@
 ---
 layout: page
 permalink: /publications/
-title: publications
-description: publications by type or by topic
+title: Publications
+description: Publications by type or by topic, sorted by year
 nav: true
 nav_order: 2
 ---
 
-<!-- Bibsearch Feature -->
 {% include bib_search.liquid %}
 
 <!-- Toolbar for grouping options -->
 <div id="pub-toolbar" style="margin-bottom: 1em;">
-  <button onclick="groupPubs('type')">Group by Type</button>
-  <button onclick="groupPubs('topic')">Group by Topic</button>
+  <button onclick="filterPubs('type')">Group by Type</button>
+  <button onclick="filterPubs('topic')">Group by Topic</button>
 </div>
 
 <!-- Publications list -->
@@ -22,13 +21,6 @@ nav_order: 2
 </div>
 
 <style>
-/* Optional: ensure pub divs are flex containers for proper Bootstrap layout */
-.pub {
-  display: flex !important;
-  flex-wrap: wrap;
-}
-
-/* Header style for each group */
 .pub-group-header {
   width: 100%;
   margin-top: 2em;
@@ -39,54 +31,44 @@ nav_order: 2
 </style>
 
 <script>
-function groupPubs(mode) {
+function filterPubs(mode) {
   const list = document.getElementById("pub-list");
   const items = Array.from(list.querySelectorAll(".pub"));
 
-  // Clear previous headers
+  // Remove old headers
   Array.from(list.querySelectorAll(".pub-group-header")).forEach(h => h.remove());
 
-  // Group publications
+  // Build groups
   const groups = {};
   items.forEach(item => {
-    const year = parseInt(item.dataset.year) || 0;
-    const type = item.dataset.type || "Unspecified";
-    const topic = item.dataset.topic || "Unspecified";
-
-    const key = (mode === "type") ? type : topic;
-
+    const key = (mode === "type") ? (item.dataset.type || "Unspecified") : (item.dataset.topic || "Unspecified");
     if (!groups[key]) groups[key] = [];
-    groups[key].push({ element: item, year: year });
+    groups[key].push(item);
   });
 
-  // Sort group keys alphabetically
-  const sortedKeys = Object.keys(groups).sort();
-
-  sortedKeys.forEach(key => {
+  // Sort keys alphabetically
+  Object.keys(groups).sort().forEach(key => {
     const group = groups[key];
 
-    // Insert group header
+    // Insert header before the first item of the group
     const header = document.createElement("div");
-    header.textContent = key;
     header.className = "pub-group-header";
-    list.appendChild(header);
+    header.textContent = key;
+    list.insertBefore(header, group[0]);
 
-    // Sort publications by year descending and set CSS order
-    group.sort((a, b) => b.year - a.year).forEach((pub, index) => {
-      pub.element.style.order = index;
-      list.appendChild(pub.element);
-      pub.element.style.display = "flex"; // ensure visible
+    // Show all items, sorted by year descending
+    group.sort((a, b) => (parseInt(b.dataset.year) || 0) - (parseInt(a.dataset.year) || 0)).forEach(pub => {
+      pub.style.display = "flex";  // Ensure visible
     });
   });
 
-  // Re-initialize Bootstrap popovers (if used)
+  // Re-initialize Bootstrap popovers
   if (typeof $ !== "undefined" && $.fn.popover) {
     $('[data-toggle="popover"]').popover();
   }
 }
 
-// Default grouping on page load
-document.addEventListener("DOMContentLoaded", () => {
-  groupPubs("type");
-});
+// Default view on page load
+document.addEventListener("DOMContentLoaded", () => filterPubs('type'));
 </script>
+
