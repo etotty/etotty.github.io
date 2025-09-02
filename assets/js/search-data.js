@@ -10,8 +10,8 @@ ninja.data = [{
       window.location.href = "/";
     },
   },{id: "nav-publications",
-          title: "Publications",
-          description: "Publications grouped by type or topic",
+          title: "publications",
+          description: "publications by type (default) or by topic",
           section: "Navigation",
           handler: () => {
             window.location.href = "/publications/";
