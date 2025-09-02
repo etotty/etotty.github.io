@@ -8,9 +8,9 @@ nav_order: 6
 ---
 
 ## Teaching Experience
-Macroeconomics, online (course instructor) -- Summer 2014
+Macroeconomics, online (solo course instructor) -- Summer 2014
 
-Macroeconomics (course instructor) -- Summer 2013, Fall 2014
+Macroeconomics (solo course instructor) -- Summer 2013, Fall 2014
 
 Principles of Economics (recitation instructor) -- Spring 2012
 
