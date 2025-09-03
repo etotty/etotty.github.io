@@ -12,6 +12,21 @@ nav_order: 2
   <li class="nav-item">
     <a class="nav-link active" href="{{ '/publications/' | relative_url }}">All</a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ '/publications_dataprivacy/' | relative_url }}">Data Privacy</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ '/publications_education/' | relative_url }}">Education</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ '/publications_factormodels/' | relative_url }}">Factor Models</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ '/publications_minimumwage/' | relative_url }}">Minimum Wages</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ '/publications_other/' | relative_url }}">Other</a>
+  </li>
 </ul>
 
 <div class="publications">
