@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: /publications/
+permalink: /publications/dataprivacy
 title: publications
 description: publications by categories in reversed chronological order
 nav: true
@@ -10,10 +10,10 @@ nav_order: 2
 <!-- Navigation buttons -->
 <ul class="nav nav-pills mb-4">
   <li class="nav-item">
-    <a class="nav-link active" href="{{ '/publications/' | relative_url }}">All</a>
+    <a class="nav-link" href="{{ '/publications/' | relative_url }}">All</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{{ '/publications_dataprivacy/' | relative_url }}">Data Privacy</a>
+    <a class="nav-link active" href="{{ '/publications_dataprivacy/' | relative_url }}">Data Privacy</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="{{ '/publications_education/' | relative_url }}">Education</a>
