@@ -200,6 +200,11 @@ exclude:
   - _pages/blog.md
   - _pages/books.md
   - _pages/dropdown.md
+  - _pages/publications_dataprivacy.md
+  - _pages/publications_education.md
+  - _pages/publications_factormodel.md
+  - _pages/publications_minimumwage.md
+  - _pages/publications_other.md
   
 keep_files:
   - CNAME
