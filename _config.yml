@@ -295,7 +295,7 @@ scholar:
 
   query: "@*"
   sort_by: year
-  sort_order: ascending
+  sort_order: descending
   type_order: [article, incollection, unpublished, report, inbook, book, misc, conference, inproceedings, proceedings]
   type_names: {unpublished: working papers, report: technical reports and resting papers, article: peer-reviewed articles, 
       incollection: book chapters}
