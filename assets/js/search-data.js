@@ -21,35 +21,7 @@ ninja.data = [{
           description: "publications by categories in reversed chronological order",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/publications_dataprivacy/";
-          },
-        },{id: "nav-publications",
-          title: "publications",
-          description: "publications by categories in reversed chronological order",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/publications_education/";
-          },
-        },{id: "nav-publications",
-          title: "publications",
-          description: "publications by categories in reversed chronological order",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/publications_factormodels";
-          },
-        },{id: "nav-publications",
-          title: "publications",
-          description: "publications by categories in reversed chronological order",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/publications_minimumwage";
-          },
-        },{id: "nav-publications",
-          title: "publications",
-          description: "publications by categories in reversed chronological order",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/publications_other";
+            window.location.href = "/publications_factormodels/";
           },
         },{id: "nav-cv",
           title: "cv",
