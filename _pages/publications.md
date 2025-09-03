@@ -19,10 +19,10 @@ nav_order: 2
     <a class="nav-link" href="{{ '/publications_education/' | relative_url }}">Education</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{{ '/publications_factormodels/' | relative_url }}">Factor Models</a>
+    <a class="nav-link" href="{{ '/publications_factormodel/' | relative_url }}">Factor Model</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{{ '/publications_minimumwage/' | relative_url }}">Minimum Wages</a>
+    <a class="nav-link" href="{{ '/publications_minimumwage/' | relative_url }}">Minimum Wage</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="{{ '/publications_other/' | relative_url }}">Other</a>
