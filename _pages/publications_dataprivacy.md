@@ -30,5 +30,5 @@ nav_order: 2
 </ul>
 
 <div class="publications">
- {% bibliography --query @*[topic=dataprivacy] --group_by type %}
+ {% bibliography --query @*[topic=data privacy] --group_by type %}
 </div>
