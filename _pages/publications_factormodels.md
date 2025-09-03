@@ -1,9 +1,9 @@
 ---
 layout: page
-permalink: /publications_factormodels/
+permalink: /publications_factormodel/
 title: publications
 description: publications by categories in reversed chronological order
-nav: true
+nav: false
 nav_order: 2
 ---
 
