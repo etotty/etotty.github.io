@@ -30,5 +30,5 @@ nav_order: 2
 </ul>
 
 <div class="publications">
- {% bibliography --query @*[topic~=minimum wages] --group_by type %}
+ {% bibliography --query @*[topic~=minimum wage] --group_by type %}
 </div>
