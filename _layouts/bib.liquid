@@ -215,7 +215,11 @@
           <a href="{{ entry.url }}" class="btn btn-sm z-depth-0" role="button">URL</a>
       {% endif %}
       {% if entry.eprint %}
+        {% if entry.eprint contains '://' %}
           <a href="{{ entry.eprint }}" class="btn btn-sm z-depth-0" role="button">PRE-PRINT</a>
+        {% else %}
+          <a href="{{ entry.eprint | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">PRE-PRINT</a>
+        {% endif %}
       {% endif %}
       {% if entry.pdf %}
         {% if entry.pdf contains '://' %}
