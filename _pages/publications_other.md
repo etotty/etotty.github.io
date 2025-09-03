@@ -4,7 +4,7 @@ permalink: /publications_other/
 title: publications
 description: publications by categories in reversed chronological order
 nav: false
-nav_order: 2
+nav_order: 3
 ---
 
 <!-- Navigation buttons -->
