@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: /publications_minimumwage
+permalink: /publications_minimumwage/
 title: publications
 description: publications by categories in reversed chronological order
 nav: true
