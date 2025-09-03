@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: /publications_dataprivacy
+permalink: /publications_dataprivacy/
 title: publications
 description: publications by categories in reversed chronological order
 nav: true
