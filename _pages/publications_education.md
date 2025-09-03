@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: /publications_education
+permalink: /publications_education/
 title: publications
 description: publications by categories in reversed chronological order
 nav: true
