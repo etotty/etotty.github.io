@@ -23,3 +23,9 @@ $max-content-width: {{ site.max_width }};
   "tabler-icons/tabler-icons-filled.scss",
   "tabler-icons/tabler-icons-outline.scss"
 ;
+
+/* Darken publication group headers (right-side text) */
+.bibliography > h2 {
+  color: #333 !important;  /* darker gray */
+  font-weight: 600;        /* optional: a bit bolder */
+}
