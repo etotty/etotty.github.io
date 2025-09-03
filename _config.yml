@@ -296,9 +296,9 @@ scholar:
   query: "@*"
   sort_by: year
   sort_order: descending
-  type_order: [article, inbook, book, unpublished, misc, report, conference, incollections, inproceedings, proceedings]
+  type_order: [article, incollections, unpublished, report, inbook, book, misc, conference, inproceedings, proceedings]
   type_names: {unpublished: working papers, report: technical reports and resting papers, article: peer-reviewed articles, 
-      inproceedings: book chapters}
+      incollections: book chapters}
   
 
 # Display different badges withs stats for your publications
