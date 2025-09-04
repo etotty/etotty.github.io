@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://etotty.github.io./sitemap.xml
+Sitemap: https://etotty.github.io/sitemap.xml
