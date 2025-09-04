@@ -8,7 +8,7 @@ profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
-  more_info: >
+  more_info >
   <p>U.S. Census Bureau</p>
   <p>4600 Silver Hill Road</p>
   <p>Washington, DC 20233-3700</p>
