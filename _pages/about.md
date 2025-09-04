@@ -8,11 +8,11 @@ profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
-  more_info: >
-  <p>U.S. Census Bureau</p>
+  more_info: > 
+  <p>U.S. Census Bureau</p> 
   <p>4600 Silver Hill Road</p>
-  <p>Washington, DC 20233-3700</p>
-  <p><a href="mailto:evan.scott.totty@gmail.com">✉️ evan.scott.totty@gmail.com</a></p>
+  <p>Washington, DC 20233-3700</p> 
+  <p>[✉️ evan.scott.totty@gmail.com](mailto:evan.scott.totty@gmail.com)</p>
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
