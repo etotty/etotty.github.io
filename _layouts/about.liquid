@@ -33,7 +33,8 @@ layout: default
           %}
         {% endif %}
         {% if page.profile.more_info %}
-          <div class="more-info">{{ page.profile.more_info }}</div>
+            {% capture profile_more_info %}{% include_relative {{ page.profile.more_info }} %}{% endcapture %}
+            {{ profile_more_info | markdownify }}
         {% endif %}
       </div>
     {% endif %}
