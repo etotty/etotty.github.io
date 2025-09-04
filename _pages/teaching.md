@@ -23,7 +23,7 @@ Game Theory (teaching assistant) -- Fall 2012
 Behavioral Economics (teaching assistant) -- Fall 2011
 
 
-## Awards, Certificates, and Fellowships
+## Awards
 Certificate for Distinguished Teaching [4.4/5 or higher average on selected questions for student evaluations] (Fall 2013, Summer 2014)
 
 Certificate for Outstanding Teaching [4.0-4.39/5] (Summer 2013)
