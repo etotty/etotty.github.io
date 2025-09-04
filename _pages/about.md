@@ -12,7 +12,6 @@ profile:
   <p>U.S. Census Bureau</p> 
   <p>4600 Silver Hill Road</p>
   <p>Washington, DC 20233-3700</p> 
-  <p>[✉️ evan.scott.totty@gmail.com](mailto:evan.scott.totty@gmail.com)</p>
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
