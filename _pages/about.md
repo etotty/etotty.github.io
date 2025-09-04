@@ -12,7 +12,7 @@ profile:
     <p>🏢 U.S. Census Burea</p>
     <p>📍 Washington, DC</p>
     <p><a href="https://scholar.google.com/citations?user=61MayAUAAAAJ&hl=en"><img src="/assets/img/googlescholar.png" style="width:16px; height:16px; vertical-align:middle; margin-right:4px;"> google scholar</a></p>
-    <p><a href="[https://scholar.google.com/citations?user=61MayAUAAAAJ&hl=en](https://www.linkedin.com/in/evan-totty-013859354/)"><img src="/assets/img/linkedin.png" style="width:16px; height:16px; vertical-align:middle; margin-right:4px;"> LinkedIn</a></p>
+    <p><a href="https://www.linkedin.com/in/evan-totty-013859354/"><img src="/assets/img/linkedin.png" style="width:16px; height:16px; vertical-align:middle; margin-right:4px;"> LinkedIn</a></p>
     <p><a href="mailto:evan.scott.totty@gmail.com">✉️ evan.scott.totty@gmail.com</a></p>
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
