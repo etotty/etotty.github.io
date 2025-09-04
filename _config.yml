@@ -294,12 +294,18 @@ scholar:
   details_link: Details
 
   query: "@*"
-  sort_by: year
-  sort_order: descending
+#  sort_by: year
+#  sort_order: descending
+#  type_order: [article, incollection, unpublished, report, inbook, book, misc, conference, inproceedings, proceedings]
+#  type_names: {unpublished: working papers, report: technical reports and resting papers, article: peer-reviewed articles, 
+#      incollection: book chapters}
+  group_by: type
+  group_order: defined        # uses your `type_order` below
   type_order: [article, incollection, unpublished, report, inbook, book, misc, conference, inproceedings, proceedings]
   type_names: {unpublished: working papers, report: technical reports and resting papers, article: peer-reviewed articles, 
       incollection: book chapters}
-  
+  sort_by: year
+  sort_order: descending      # newest entries first within each type  
 
 # Display different badges withs stats for your publications
 # Customize badge behavior in _layouts/bib.liquid
