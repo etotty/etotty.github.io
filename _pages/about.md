@@ -9,9 +9,8 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>U.S. Census Burea</p>
-    <p>4600 Silver Hill Road</p>
-    <p>Washington, DC 20233-3700</p>
+    <p>🏢 U.S. Census Burea</p>
+    <p>📍 Washington, DC</p>
     <p><a href="mailto:evan.scott.totty@gmail.com">✉️ evan.scott.totty@gmail.com</a></p>
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
