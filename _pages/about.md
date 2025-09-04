@@ -9,11 +9,11 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>🏢 U.S. Census Burea</p>
+    <p>🏢 U.S. Census Bureau</p>
     <p>📍 Washington, DC</p>
+    <p><a href="mailto:evan.scott.totty@gmail.com">✉️ evan.scott.totty@gmail.com</a></p>
     <p><a href="https://scholar.google.com/citations?user=61MayAUAAAAJ&hl=en"><img src="/assets/img/googlescholar.png" style="width:16px; height:16px; vertical-align:middle; margin-right:4px;"> google scholar</a></p>
     <p><a href="https://www.linkedin.com/in/evan-totty-013859354/"><img src="/assets/img/linkedin.png" style="width:16px; height:16px; vertical-align:middle; margin-right:4px;"> LinkedIn</a></p>
-    <p><a href="mailto:evan.scott.totty@gmail.com">✉️ evan.scott.totty@gmail.com</a></p>
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
@@ -31,6 +31,4 @@ latest_posts:
 
 I am an economist at the U.S. Census Bureau. I received my Ph.D. in economics from Purdue University in 2016. My primary research fields are labor economics, applied econometrics, and the economics of privacy. My current research includes work on minimum wages, education, and data privacy.
 
-I work in the Center for Enterprise Dissemination - Disclosure Avoidance in the Research & Methodology Directorate at the U.S. Census Bureau. [Our work](https://www.census.gov/library/working-papers/series/ced-wp.html) involves the application of disclosure avoidance mechanisms to Census data products and the evaluation of their effects on privacy and utility.
-
-You can find me and my work on [LinkedIn](https://www.linkedin.com/in/evan-totty-013859354/) and [google scholar](https://scholar.google.com/citations?user=61MayAUAAAAJ&hl=en).
+I work in the Center for Enterprise Dissemination - Disclosure Avoidance in the Research & Methodology Directorate at the U.S. Census Bureau. [Our work](https://www.census.gov/about/policies/privacy/statistical_safeguards/working-papers.html?text-list-fca4bc7525%3Atab=2025#text-list-fca4bc7525) involves the application of disclosure avoidance mechanisms to Census data products and the evaluation of their effects on privacy and utility.
