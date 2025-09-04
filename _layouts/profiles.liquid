@@ -18,8 +18,7 @@ layout: page
             {% include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=profile.image %}
           {% endif %}
           {% if profile.more_info %}
-            {% capture profile_more_info %}{% include_relative {{ profile.more_info }} %}{% endcapture %}
-            {{ profile_more_info | markdownify }}
+          <div class="more-info">{{ page.profile.more_info }}</div>
           {% endif %}
         </div>
 
