@@ -2,7 +2,7 @@
 layout: page
 permalink: /publications_minimumwage/
 title: research
-description: research in reversed chronological order
+description: Research in reversed chronological order
 nav: false
 nav_order: 3
 ---
