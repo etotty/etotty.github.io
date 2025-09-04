@@ -12,6 +12,7 @@ profile:
     <p>U.S. Census Burea</p>
     <p>4600 Silver Hill Road</p>
     <p>Washington, DC 20233-3700</p>
+    <p><a href="mailto:evan.scott.totty@gmail.com">✉️ evan.scott.totty@gmail.com</a></p>
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
