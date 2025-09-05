@@ -9,10 +9,10 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>🏢 U.S. Census Bureau</p>
-    <p>📍 Washington, DC</p>
-    <p><a href="mailto:evan.scott.totty@gmail.com">✉️ evan.scott.totty@gmail.com</a></p>
     <p>
+      🏢 U.S. Census Bureau><br>
+      📍 Washington, DC><br>
+      <a href="mailto:evan.scott.totty@gmail.com">✉️ evan.scott.totty@gmail.com</a>><br>
       <a href="https://scholar.google.com/citations?user=61MayAUAAAAJ&hl=en"><img src="/assets/img/googlescholar.png" style="width:16px; height:16px; vertical-align:middle; margin-right:4px;"> google scholar</a><br>
       <a href="https://www.linkedin.com/in/evan-totty-013859354/"><img src="/assets/img/linkedin.png" style="width:16px; height:16px; vertical-align:middle; margin-right:4px;"> LinkedIn</a>
     </p>  
