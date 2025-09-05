@@ -192,6 +192,11 @@
           {%- if entry.award_name %}{{ entry.award_name }}{% else %}Awarded{% endif -%}
         </a>
       {% endif %}
+      {% if entry.note %}
+        <a class="note btn btn-sm z-depth-0" role="button">
+          { entry.note }
+        </a>
+      {% endif %}
       {% if entry.abstract %}
         <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
       {% endif %}
@@ -349,12 +354,14 @@
       {% endif %}
     {% endif %}
 
+{% comment %}
     {% if entry.award %}
       <!-- Hidden Award block -->
       <div class="award hidden d-print-inline">
         <p>{{ entry.award | markdownify }}</p>
       </div>
     {% endif %}
+{% endcomment %}
 
     {% if entry.abstract %}
       <!-- Hidden abstract block -->
